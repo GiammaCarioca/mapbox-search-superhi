@@ -1,26 +1,30 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react'
+import Map from './Map'
+import Toggler from './Toggler'
+import Search from './Search'
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+	// eslint-disable-next-line no-unused-vars
+	const [long, setLong] = useState(-74.006)
+	// eslint-disable-next-line no-unused-vars
+	const [lat, setLat] = useState(40.7128)
+	// eslint-disable-next-line no-unused-vars
+	const [mapStyle, setMapStyle] = useState('mapbox://styles/mapbox/dark-v10')
+	// eslint-disable-next-line no-unused-vars
+	const [places, setPlaces] = useState([])
+
+	return (
+		<div className="App">
+			<Search places={places} setPlaces={setPlaces}></Search>
+			<Toggler
+				setLat={setLat}
+				setLong={setLong}
+				setMapStyle={setMapStyle}
+				defaultStyle={mapStyle}
+			></Toggler>
+			<Map long={long} lat={lat} mapStyle={mapStyle} places={places}></Map>
+		</div>
+	)
 }
 
-export default App;
+export default App
