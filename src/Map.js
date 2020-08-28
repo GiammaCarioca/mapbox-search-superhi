@@ -3,12 +3,13 @@ import mapbox from 'mapbox-gl'
 import PlacesPanel from './PlacesPanel'
 import './Map.css'
 
+require('dotenv').config()
+
 function Map({ long, lat, mapStyle, places }) {
 	const [map, setMap] = useState({})
 
 	useEffect(() => {
-		mapbox.accessToken =
-			'pk.eyJ1IjoiZ2lhbW1hY2FyaW9jYSIsImEiOiJjamh5enQyODcwczJhM3FtcWZ4MWFtZWkzIn0.WYElwcfpht5zjidLQHk5EQ'
+		mapbox.accessToken = process.env.REACT_APP_MAPBOX_TOKEN
 
 		const map = new mapbox.Map({
 			container: 'map',

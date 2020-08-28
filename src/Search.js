@@ -1,14 +1,15 @@
 import React, { useState } from 'react'
 import './Search.css'
 
+require('dotenv').config()
+
 function Search({ places, setPlaces }) {
 	const [value, setValue] = useState('')
 
 	const handleSubmit = (e) => {
 		e.preventDefault()
 
-		const accessToken =
-			'pk.eyJ1IjoiZ2lhbW1hY2FyaW9jYSIsImEiOiJjamh5enQyODcwczJhM3FtcWZ4MWFtZWkzIn0.WYElwcfpht5zjidLQHk5EQ'
+		const accessToken = process.env.REACT_APP_MAPBOX_TOKEN
 
 		const url = `https:/api.mapbox.com/geocoding/v5/mapbox.places/${value}.json?access_token=${accessToken}`
 

@@ -4,13 +4,9 @@ import Toggler from './Toggler'
 import Search from './Search'
 
 function App() {
-	// eslint-disable-next-line no-unused-vars
-	const [long, setLong] = useState(-74.006)
-	// eslint-disable-next-line no-unused-vars
-	const [lat, setLat] = useState(40.7128)
-	// eslint-disable-next-line no-unused-vars
+	const [long, setLong] = useState(-43.18587)
+	const [lat, setLat] = useState(-22.96688)
 	const [mapStyle, setMapStyle] = useState('mapbox://styles/mapbox/dark-v10')
-	// eslint-disable-next-line no-unused-vars
 	const [places, setPlaces] = useState([])
 
 	return (
